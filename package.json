@@ -1,0 +1,23 @@
+{
+  "name": "ray-react-app-ts",
+  "version": "1.0.0",
+  "description": "ray的react typescript 全家桶系列",
+  "scripts": {
+    "start": "(cd my-app  && yarn start)",
+    "serve": "(cd my-service && yarn start)"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ray1314/ray-react-app-ts.git"
+  },
+  "private": true,
+  "workspaces": ["my-app", "my-service"],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/Ray1314/ray-react-app-ts/issues"
+  },
+  "homepage": "https://github.com/Ray1314/ray-react-app-ts#readme"
+}
