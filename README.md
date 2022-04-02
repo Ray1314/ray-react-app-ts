@@ -1,5 +1,7 @@
 ## 全家桶
-    react-typescript @4
+    react-typescript 
+    react @17
+    typescript @4
     webpack @5
     react-hook  @17 
     react-router-dom @6
