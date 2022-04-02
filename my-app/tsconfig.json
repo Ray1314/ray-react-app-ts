@@ -2,13 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".", // 提示地址
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "paths": {
-      "@src/*": ["./src/*"], //提示地址
+      "@src/*": ["./src/*"] //提示地址
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -24,10 +20,8 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src"
-  ],
+  "include": ["src"],
   "rules": {
-      "no-implicit-dependencies": ["optional", ["src"]] // 提示地址
-    } ,
+    "no-implicit-dependencies": ["optional", ["src"]] // 提示地址
+  }
 }

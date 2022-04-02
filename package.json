@@ -4,7 +4,8 @@
   "description": "ray的react typescript 全家桶系列",
   "scripts": {
     "start": "(cd my-app  && yarn start)",
-    "serve": "(cd my-service && yarn start)"
+    "serve": "(cd my-service && yarn start)",
+    "build": "(cd my-app  && yarn build)"
   },
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
