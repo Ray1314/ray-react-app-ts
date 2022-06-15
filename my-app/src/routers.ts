@@ -10,6 +10,13 @@ const routers: Array<any> = [
         children: []
     },
     {
+        path: '/tree',
+        element: lazy(() => import("./pages/tree/Index")),
+        name: 'Terr',
+        index: false,
+        params: '',
+    },
+    {
         path: '/list',
         element: lazy(() => import("./pages/router/List")),
         name: 'List',
