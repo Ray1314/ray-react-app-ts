@@ -9,13 +9,18 @@
   },
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "bpmn-js": "^9.2.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ray1314/ray-react-app-ts.git"
   },
   "private": true,
-  "workspaces": ["my-app", "my-service"],
+  "workspaces": [
+    "my-app",
+    "my-service"
+  ],
   "author": "",
   "bugs": {
     "url": "https://github.com/Ray1314/ray-react-app-ts/issues"
