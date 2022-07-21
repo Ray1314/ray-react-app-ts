@@ -5,32 +5,32 @@ import React, { useEffect, useState } from "react";
 import { list, data } from "./data"
 const CheckboxGroup = Checkbox.Group;
 
-let relation: any = {};
-let upkeys: any = {};
-let downkeys: any = {};
-let childrenkeys: any = {};
-let up: any = "";
+let relation = {};
+let upkeys = {};
+let downkeys = {};
+let childrenkeys = {};
+let up = "";
 let upIndex = "";
 
-const App: React.FC = () => {
-  const [checked, setChecked] = useState<any>({});
-  const [indeterminate, setIndeterminate] = useState<any>({});
-  const [childrenk, setChildrenk] = useState<any>({});
-  const [columns, setColumns] = useState<any>([]);
+const App = () => {
+  const [checked, setChecked] = useState({});
+  const [indeterminate, setIndeterminate] = useState({});
+  const [childrenk, setChildrenk] = useState({});
+  const [columns, setColumns] = useState([]);
   // 获取选中
-  const checkedFun = (key: any) => {
+  const checkedFun = (key) => {
     return checked[key];
   };
   // 获取方框
-  const indeterminateFun = (key: any) => {
+  const indeterminateFun = (key) => {
     return indeterminate[key];
   };
   // 菜单勾选
-  const onChange = (e: any, key: any) => {
+  const onChange = (e, key) => {
     const value = e.target ? e.target.checked : e;
     checked[key] = value;
     indeterminate[key] = false;
-    downkeys[key]?.map((item: any) => {
+    downkeys[key]?.map((item) => {
       checked[item] = value;
       indeterminate[item] = false;
       onChangeC(value, item);
@@ -45,7 +45,7 @@ const App: React.FC = () => {
           const fkey = downkeys[upIndex];
           let i = 0;
           let ii = fkey.length;
-          fkey.map((item: any) => {
+          fkey.map((item) => {
             if (checked[item]) {
               i++;
             }
@@ -68,7 +68,7 @@ const App: React.FC = () => {
     columnsFun();
   };
   // 修改父项的方法
-  const onChangeF = async (value: any, key: any, valueF?: any) => {
+  const onChangeF = async (value, key, valueF) => {
     indeterminate[key] = value;
     checked[key] = valueF;
     Object.keys(relation)
@@ -82,7 +82,7 @@ const App: React.FC = () => {
           let i = 0;
           let ai = 0;
           let ii = fkey.length;
-          fkey.map((item: any) => {
+          fkey.map((item) => {
             if (checked[item]) {
               i++;
             }
@@ -112,16 +112,16 @@ const App: React.FC = () => {
     columnsFun();
   };
   // 选中菜单下所有button
-  const onChangeC = (value: any, key: any) => {
+  const onChangeC = (value, key) => {
     if (value) {
-      childrenk[key] = childrenkeys[key]?.map((item: any) => item.value) || [];
+      childrenk[key] = childrenkeys[key]?.map((item) => item.value) || [];
     } else {
       childrenk[key] = [];
     }
     setChildrenk(childrenk);
   };
   // 按钮勾选
-  const onAgeChange = (values: any, row: any) => {
+  const onAgeChange = (values, row) => {
     childrenk[row.id] = values;
     setChildrenk(childrenk);
     if (values.length == 0) {
@@ -134,7 +134,7 @@ const App: React.FC = () => {
     columnsFun();
   };
   // 数据回显
-  const onAgeChange1 = (value: any, row: any) => {
+  const onAgeChange1 = (value, row) => {
     if (!childrenk[row.id]) {
       childrenk[row.id] = [value];
     } else {
@@ -159,7 +159,7 @@ const App: React.FC = () => {
       const fkey = downkeys[upIndex];
       let i = 0;
       let ii = fkey.length;
-      fkey.map((item: any) => {
+      fkey.map((item) => {
         if (checked[item]) {
           i++;
         }
@@ -186,7 +186,7 @@ const App: React.FC = () => {
       let i = 0;
       let ai = 0;
       let ii = fkey.length;
-      fkey.map((item: any) => {
+      fkey.map((item) => {
         if (checked[item]) {
           i++;
         }
@@ -215,7 +215,7 @@ const App: React.FC = () => {
     }
   };
   // 初始化父子关系
-  const relationFun = (item: any, y: any) => {
+  const relationFun = (item, y) => {
     if (relation[up]) {
       // 获取它的父节点
       up = relation[up];
@@ -228,8 +228,8 @@ const App: React.FC = () => {
     }
   };
   // 初始化根树
-  const DataFun = (data: any, key: any) => {
-    data.map((item: any) => {
+  const DataFun = (data, key) => {
+    data.map((item) => {
       // 创建key
       relation[item.id] = key;
       // 保存当时的父节点
@@ -272,13 +272,13 @@ const App: React.FC = () => {
       {
         title: "Name",
         dataIndex: "title",
-        render: (text: string, row: any) => {
+        render: (text, row) => {
           return (
             <>
               <Checkbox
                 indeterminate={indeterminateFun(row.id)}
                 checked={checkedFun(row.id)}
-                onChange={(e: any) => {
+                onChange={(e) => {
                   onChange(e, row.id);
                 }}
               >
@@ -292,7 +292,7 @@ const App: React.FC = () => {
       {
         title: "Age",
         dataIndex: "age",
-        render: (a: any, row: any) => {
+        render: (a, row) => {
           return (
             <CheckboxGroup
               options={row.function ? row.function : []}
@@ -311,7 +311,7 @@ const App: React.FC = () => {
   useEffect(() => {
     DataFun(data, 0);
     columnsFun();
-    list.map((item: any) => {
+    list.map((item) => {
       if (item.type == "function") {
         console.log(item)
         onAgeChange1(item.id, {
